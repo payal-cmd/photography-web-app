@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery - SHOOTFACTORY</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .gallery-container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      background-color: #000;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #d4af37;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #d4af37;
+      z-index: 10;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: filter 0.3s ease;
+    }
+    .gallery-item:hover img {
+      filter: brightness(0.8);
+    }
+    .caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(212, 175, 55, 0.8);
+      color: #000;
+      width: 100%;
+      padding: 0.5rem;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">SHOOTFACTORY</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="location.html">Location</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="gallery-container container">
+      <div class="gallery-item">
+        <img src="photos/photo1.jpg" alt="Photo 1" />
+        <div class="caption">Wedding Shoot</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/photo2.jpg" alt="Photo 2" />
+        <div class="caption">Portrait</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/photo3.jpg" alt="Photo 3" />
+        <div class="caption">Studio Session</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/photo4.jpg" alt="Photo 4" />
+        <div class="caption">Outdoor Shoot</div>
+      </div>
+      <!-- Add more photos as needed -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 SHOOTFACTORY. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

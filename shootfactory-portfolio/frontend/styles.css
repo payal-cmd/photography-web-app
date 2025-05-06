@@ -1,0 +1,119 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #d4af37, #000000, #4b4b4b, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #d4af37; /* metal gold */
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header styles */
+header {
+  background-color: #111111;
+  padding: 1rem 0;
+  border-bottom: 2px solid #d4af37;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d4af37;
+  margin: 0;
+  display: inline-block;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav ul li a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  perspective: 500px;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+  transform: rotateX(15deg) rotateY(15deg) scale(1.1);
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #d4af37 0%, #000000 100%);
+  color: #000000;
+  padding: 4rem 0;
+  text-align: center;
+  perspective: 800px;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: hero3D 5s ease-in-out infinite alternate;
+  transform-style: preserve-3d;
+  display: inline-block;
+}
+
+@keyframes hero3D {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+    text-shadow: 0 0 5px #d4af37, 0 0 10px #d4af37;
+  }
+  50% {
+    transform: rotateX(15deg) rotateY(15deg) translateZ(20px);
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+    text-shadow: 0 0 5px #d4af37, 0 0 10px #d4af37;
+  }
+}
+
+/* About section */
+.about {
+  padding: 2rem 0;
+  color: #ffffff;
+}
+
+.about h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #111111;
+  color: #d4af37;
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 2px solid #d4af37;
+  margin-top: 3rem;
+}

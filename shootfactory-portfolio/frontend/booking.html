@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking - SHOOTFACTORY</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    async function submitBooking(event) {
+      event.preventDefault();
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const details = document.getElementById('details').value;
+
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Please login to make a booking.');
+        return;
+      }
+
+      const response = await fetch('http://localhost:4200/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({ date, time, details })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert('Booking successful! Booking ID: ' + data.bookingId);
+        document.getElementById('booking-form').reset();
+      } else {
+        alert('Error: ' + data.message);
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">SHOOTFACTORY</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="booking.html" class="active">Booking</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="location.html">Location</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <h2>Book a Session</h2>
+      <form id="booking-form" onsubmit="submitBooking(event)">
+        <label for="date">Date:</label><br />
+        <input type="date" id="date" name="date" required /><br /><br />
+
+        <label for="time">Time:</label><br />
+        <input type="time" id="time" name="time" required /><br /><br />
+
+        <label for="details">Details (optional):</label><br />
+        <textarea id="details" name="details" rows="4"></textarea><br /><br />
+
+        <button type="submit">Submit Booking</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 SHOOTFACTORY. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

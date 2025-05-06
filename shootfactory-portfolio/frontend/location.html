@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Location - SHOOTFACTORY</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .map-container {
+      width: 100%;
+      height: 500px;
+      margin: 2rem 0;
+      border: 2px solid #d4af37;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">SHOOTFACTORY</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="booking.html">Booking</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="location.html" class="active">Location</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <h2>Our Location</h2>
+      <div class="map-container" id="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 SHOOTFACTORY. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function initMap() {
+      const studioLocation = { lat: 40.712776, lng: -74.005974 }; // Example: New York City coordinates
+      const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: studioLocation,
+        styles: [
+          { elementType: 'geometry', stylers: [{ color: '#000000' }] },
+          { elementType: 'labels.text.stroke', stylers: [{ color: '#d4af37' }] },
+          { elementType: 'labels.text.fill', stylers: [{ color: '#ffffff' }] },
+          {
+            featureType: 'water',
+            elementType: 'geometry',
+            stylers: [{ color: '#000000' }]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{ color: '#d4af37' }]
+          }
+        ]
+      });
+      const marker = new google.maps.Marker({
+        position: studioLocation,
+        map: map,
+        title: 'SHOOTFACTORY Studio'
+      });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+</html>
